@@ -1,0 +1,15 @@
+# Editor setup: Windows sources are checked against the MinGW headers.
+If:
+  PathMatch: (src/proxy|src/common|tests/dx11test|tests/shadertool)/.*\.(cpp|h)
+CompileFlags:
+  Add: [--target=x86_64-w64-mingw32, -std=c++20, -isystem, /opt/homebrew/Cellar/mingw-w64/14.0.0_2/toolchain-x86_64/lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../x86_64-w64-mingw32/include/c++/16.1.0, -isystem, /opt/homebrew/Cellar/mingw-w64/14.0.0_2/toolchain-x86_64/lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../x86_64-w64-mingw32/include/c++/16.1.0/x86_64-w64-mingw32, -isystem, /opt/homebrew/Cellar/mingw-w64/14.0.0_2/toolchain-x86_64/x86_64-w64-mingw32/include, -D_WIN32]
+---
+If:
+  PathMatch: (src/dxbc|tests/host)/.*
+CompileFlags:
+  Add: [-std=c++20, -Itests/host/shim, -I/Users/gogitakupatadze/StudioProjects/dx11on10/tests/host/shim]
+---
+If:
+  PathMatch: app/.*\.(cpp|h)
+CompileFlags:
+  Add: [--target=i686-w64-mingw32, -std=c++20, -isystem, /opt/homebrew/Cellar/mingw-w64/14.0.0_2/toolchain-i686/lib/gcc/i686-w64-mingw32/16.1.0/../../../../i686-w64-mingw32/include/c++/16.1.0, -isystem, /opt/homebrew/Cellar/mingw-w64/14.0.0_2/toolchain-i686/lib/gcc/i686-w64-mingw32/16.1.0/../../../../i686-w64-mingw32/include/c++/16.1.0/i686-w64-mingw32, -isystem, /opt/homebrew/Cellar/mingw-w64/14.0.0_2/toolchain-i686/i686-w64-mingw32/include, -D_WIN32]

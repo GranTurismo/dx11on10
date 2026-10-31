@@ -1,0 +1,38 @@
+// Paths are relative to the repository root (build.sh runs windres from there).
+#include <winver.h>
+#include "app/resource.h"
+#include "src/common/version.h"
+
+1 24 "app/app.manifest"
+IDI_APP ICON "app/res/app.ico"
+IDR_LOGO RCDATA "app/res/logo.png"
+IDR_PROXY_X64 RCDATA "build/x64/d3d11.dll"
+IDR_PROXY_X86 RCDATA "build/x86/d3d11.dll"
+
+VS_VERSION_INFO VERSIONINFO
+FILEVERSION DX11ON10_VERSION_BIN
+PRODUCTVERSION DX11ON10_VERSION_BIN
+FILEFLAGSMASK 0x3fL
+FILEFLAGS 0x0L
+FILEOS VOS_NT_WINDOWS32
+FILETYPE VFT_APP
+FILESUBTYPE VFT2_UNKNOWN
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "CompanyName", "DX11on10"
+            VALUE "FileDescription", "DX11on10"
+            VALUE "FileVersion", DX11ON10_VERSION
+            VALUE "InternalName", "DX11on10"
+            VALUE "OriginalFilename", "DX11on10.exe"
+            VALUE "ProductName", "DX11on10 app"
+            VALUE "ProductVersion", DX11ON10_VERSION
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
